@@ -5,7 +5,7 @@
 
 
 char *cmd = NULL;
-size_t cap = 0;
+size_t cap = 0; 
 
 int i;
 char *token;
