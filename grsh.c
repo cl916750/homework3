@@ -1,20 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<unistd.h>
+#include<sys/types.h>
 
+void tokenize(char *cmd);
+void execute();
+void end();
 
+char error_message[30] = "An error has occurred\n";
 char *cmd = NULL;
-size_t cap = 0; 
+size_t cap = 0;
 
 int i;
 char *token;
 char *arr[256];
-
-void cd();
-void path();
-void end();
-void tokenize(char *cmd);
 
 int main(void){
    while(1){
@@ -26,9 +26,7 @@ int main(void){
       if(strcmp(arr[0], "exit") == 0){
          end();
       }
-      else{
-         printf("test");
-         end();
+      execute();
    }   
 }
 
@@ -43,12 +41,15 @@ void tokenize(char *cmd){
    arr[i] = NULL;
 }
 
-void cd(){
-
-}
-
-void path(){
-
+void execute(){
+   int pID = fork();
+   if(pID != 0){
+      int s;
+      waitpid(-1,&s,0);}
+   else if(execvp(arr[0], arr) == -1){
+         write(STDERR_FILENO, error_message, strlen(error_message));
+   }
+   
 }
 
 void end(){
