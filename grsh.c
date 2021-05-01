@@ -9,5 +9,6 @@ int main()
   char cmd[100];
   do{
     
-  }while(cmd != exit)
+  }while(cmd != exit);
+  
 }
