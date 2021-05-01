@@ -25,7 +25,10 @@ int main(void){
       
       if(strcmp(arr[0], "exit") == 0){
          end();
-      } 
+      }
+      else{
+         printf("test");
+         end();
    }   
 }
 
