@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<unistd.h>
-#inlcude<sys/wait.h>
+#include<sys/wait.h>
 
 void tokenize(char *cmd);
 void execute();
