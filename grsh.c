@@ -26,7 +26,7 @@ void grsh_loop(){
 
 	char *cmd;
 	char **args;
-	int stat;
+//	int stat;
 
 	do{
 	  printf("grsh> ");
