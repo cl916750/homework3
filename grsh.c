@@ -26,16 +26,14 @@ void grsh_loop(){
 
 	char *cmd;
 	char **args;
-//	int stat;
 
 	do{
 	  printf("grsh> ");
 	  cmd = grsh_readln();
 	  args = grsh_tokenize(cmd);
-	  stat = grsh_exec(args);
 
 	  free(args);
-	} while(stat);
+	} while(1);
 }
 
 char *grsh_readln(){
@@ -91,7 +89,6 @@ char **grsh_tokenize(char *line){
 int grsh_run(char **args){
 
 	pid_t pid;
-	int stat;
 
 	pid = fork();
 	if(pid == 0){
