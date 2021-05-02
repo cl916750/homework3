@@ -41,7 +41,7 @@ void grsh_loop(){
 char *grsh_readln(){
 
 	char *line = NULL;
-	ssize_t buff = 0;
+	size_t buff = 0;
 
 	if(getline(&line, &buff, stdin) == -1){
 	  if(feof(stdin)){
@@ -91,7 +91,6 @@ char **grsh_tokenize(char *line){
 int grsh_run(char **args){
 
 	pid_t pid;
-	pid_t wpid;
 	int stat;
 
 	pid = fork();
@@ -106,7 +105,7 @@ int grsh_run(char **args){
 	}
 	else{
 	  do{
-	    wpid = waitpid(pid, &stat, WUNTRACED);
+	    pid_t wpid = waitpid(pid, &stat, WUNTRACED);
 	  } while (!WIFEXITED(stat) && !WIFSIGNALED(stat));
 	}
 
