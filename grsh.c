@@ -103,11 +103,6 @@ int grsh_run(char **args){
 	else if(pid < 0){
 	  write(STDERR_FILENO, error_message, strlen(error_message));
 	}
-	else{
-	  do{
-	    pid_t wpid = waitpid(pid, &stat, WUNTRACED);
-	  } while (!WIFEXITED(stat) && !WIFSIGNALED(stat));
-	}
 
 	return 1;
 }
